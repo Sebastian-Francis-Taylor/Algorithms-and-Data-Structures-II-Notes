@@ -1,5 +1,4 @@
-\section{Introduction to Dynamic Programming}
-
+\section{Dynamic Programming}
 \subsection{Weighted Interval Scheduling}
 \emph{The idea:} Sort by finish time and select \\
 \verb|OPT(j) = max(v[j]) + OPT(p[j]), OPT(j-1))|.
@@ -48,7 +47,7 @@ it. The algorithm runs in $O(n \log n)$ time, where $n$ is the number of jobs.
 
 \subsection{Knapsack}
 
-\emph{The problem:} Fill a backpack with as many books as possible. 
+\emph{The problem:} Fill a backpack with as many books as possible. \\
 \verb|OPT(i,w) = max(OPT(i-1,w), v[i] + OPT(i-1, w-w[i]))|
 The option is to take an item $i$ or not and the algorithm runs in $O(nW)$
 time, where $n$ is the number of items and $W$ is knapsack capacity. The
