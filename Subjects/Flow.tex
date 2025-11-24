@@ -1,0 +1,42 @@
+\subsection{Max Flow \& Min Cut}
+\subsection{Flow Algorithms}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Name & Running Time & Explanation & Notes \\
+        \hline
+        Ford-Fulkerson & $\BigO(|f^{*}|m)$ & 
+            \makecell{$|f^{*}|$ = max flow value \\ $m$ = \# edges} & 
+            \makecell{Pseudopolynomial; \\ can fail to terminate} \\
+        \hline 
+        Scaling & $\BigO(m^2 \log C)$ & 
+            $C$ = max edge capacity & 
+            \makecell{Weakly polynomial; \\ assumes integer capacities} \\
+        \hline
+        Edmonds-Karp & $\BigO(m^2 n)$ & 
+            \makecell{$n$ = \# vertices \\ $m$ = \# edges} & 
+            \makecell{Uses BFS; \\ strongly polynomial} \\
+    \end{tabular}
+\end{table}
+\subsection{Running the algorithms}
+When running the algorithms by hand, just use a basic approach—it's manageable 
+when the graph is reasonably simple. For min-cut, find the saturated edges 
+(at capacity) along the residual graph boundary between reachable and 
+unreachable vertices from the source.
+
+\subsection{Flow Problem Recipe}
+\subsubsection{Build the Graph}
+\begin{itemize}
+    \item Vertices (source + sink)
+    \item Edges (capacities + direction)
+\end{itemize}
+\subsubsection{Describe the Algorithm}
+\begin{itemize}
+    \item Find max flow ($m$) and INSERT ALGORITHM
+    \item Return an answer
+\end{itemize}
+\subsubsection{Analyse Runtime}
+\begin{itemize}
+    \item Build Parameters from question
+    \item Remember the time it takes to build the graph
+\end{itemize}

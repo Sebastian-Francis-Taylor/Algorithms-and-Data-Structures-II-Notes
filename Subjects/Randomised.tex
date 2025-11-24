@@ -1,0 +1,31 @@
+\section{Randomised Algorithms}
+\subsection{Expected Value}
+
+Expected value is the average outcome over many trials. For a discrete random variable $X$:
+\[
+\mathbb{E}[X] = \sum_{i} x_i \cdot \mathbb{P}[X = x_i]
+\]
+
+\textbf{Common trick:} Use indicator random variables. If $X = X_1 + X_2 + \cdots + X_n$ where each $X_i$ is an indicator (0 or 1), then:
+\[
+\mathbb{E}[X] = \sum_{i=1}^{n} \mathbb{E}[X_i] = \sum_{i=1}^{n} \mathbb{P}[X_i = 1]
+\]
+
+\textbf{Geometric distribution:} If success probability is $p$, then expected number of trials until first success is $\frac{1}{p}$.
+
+\textbf{Example - QuickSort:} Let $X_{ij}$ be an indicator that equals 1 if elements $i$ and $j$ are compared, 0 otherwise. Total comparisons:
+\[
+X = \sum_{i<j} X_{ij} \implies \mathbb{E}[X] = \sum_{i<j} \mathbb{E}[X_{ij}] = \sum_{i<j} \mathbb{P}[i \text{ and } j \text{ compared}]
+\]
+Elements $i$ and $j$ are compared if one is chosen as pivot before any element between them, so $\mathbb{P}[i \text{ and } j \text{ compared}] = \frac{2}{j-i+1}$. Summing gives $\mathbb{E}[X] = \BigO(n \log n)$.
+
+\subsection{Useful Sums}
+\begin{align*}
+    &\sum_{n=0}^{\infty}x^n = \frac{1}{1-x}, \quad |x|<1 \\
+    &\sum_{n=0}^{\infty}n * x^n = \frac{x}{(1-x)^2}, \quad |x|<1 \\
+    &\sum_{k=1}^{n}\frac{1}{k} = H(n), \quad \ln(n) < H(n) < \ln(n)+1 \\
+    &\mathbb{P}[\text{first success in round }j] = (1-p)^{j-1}p \\
+    &\mathbb{E}[X] = \sum x_i * \mathbb{P}[X=x_i] \quad \text{where } x_i \in \text{possible outcomes} \\
+    &\mathbb{E}[X+Y] = \mathbb{E}[X]+\mathbb{E}[Y] \\
+    &\text{if } \mathbb{P}[\text{success}] = p \text{ then } \mathbb{E}[\text{\# tries to success}] = \frac{1}{p}
+\end{align*}

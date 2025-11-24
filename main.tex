@@ -1,10 +1,8 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{enumitem}
-\usepackage{listings}
-\usepackage{xcolor}
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[english]{babel}
+\input{packages}
+\input{macros}
 
 \lstset{
     basicstyle=\ttfamily\small,
@@ -13,15 +11,18 @@
     backgroundcolor=\color{gray!10}
 }
 
-\title{Dynamic Programming Summary}
-\author{Algorithm Design Course}
-\date{}
+\title{Algorithms \& Data Structures II}
+\author{Sebastian F. Taylor}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \input{Subjects/Dynamic Programming}
+\input{Subjects/Flow}
+\input{Subjects/Randomised}
+\input{Subjects/hashing.tex}
 
 
 \end{document}

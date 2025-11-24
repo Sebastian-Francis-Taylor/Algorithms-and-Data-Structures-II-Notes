@@ -1,0 +1,35 @@
+\section{Hashing}
+
+\subsection{Chained Hashing}
+Store elements in array of linked lists. Each element $x$ goes to list at $A[h(x)]$. Operations take $\BigO(|A[h(x)]| + 1)$ time. With universal hashing, expected $\BigO(1)$ time per operation.
+
+\subsection{Linear Probing}
+Store elements directly in array. If $A[h(x)]$ is occupied, place $x$ in next empty slot (wrapping around). Forms clusters of consecutive elements. Operations take $\BigO(C(h(x)) + 1)$ time where $C(i)$ is cluster size. Cache-efficient but DELETE is $\BigO(n^2)$.
+
+\subsection{Hash Functions}
+\textbf{Universal hashing:} Family $H$ is universal if for any $x \neq y$, $\Pr[h(x) = h(y)] \leq \frac{1}{m}$ for random $h \in H$.
+
+\textbf{Dot product hashing:} For $x = (x_1, x_2, \ldots, x_r)$ in base $m$ (prime), define
+\[
+h_a(x) = (a_1 x_1 + a_2 x_2 + \cdots + a_r x_r) \bmod m
+\]
+where $a = (a_1, \ldots, a_r)$ chosen randomly. This family is universal.
+
+\subsection{Performance Comparison}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|c}
+        Data Structure & SEARCH & INSERT & DELETE & Space \\
+        \hline
+        Linked List & $\BigO(n)$ & $\BigO(n)$ & $\BigO(n)$ & $\BigO(n)$ \\
+        \hline
+        BBST & $\BigO(\log n)$ & $\BigO(\log n)$ & $\BigO(\log n)$ & $\BigO(n)$ \\
+        \hline
+        Direct Addressing & $\BigO(1)$ & $\BigO(1)$ & $\BigO(1)$ & $\BigO(|U|)$ \\
+        \hline
+        \makecell{Chained Hashing \\ (universal)} & $\BigO(1)^*$ & $\BigO(1)^*$ & $\BigO(1)^*$ & $\BigO(n)$ \\
+        \hline
+        Linear Probing & \makecell{$\BigO(C(h(x)) + 1)$} & \makecell{$\BigO(C(h(x)) + 1)$} & $\BigO(n^2)$ & $\BigO(n)$ \\
+    \end{tabular}
+\end{table}
+$^*$ Expected time (when using universal hash function)
