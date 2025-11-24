@@ -1,0 +1,10 @@
+\section{Amortised Analysis}
+
+\subsection{Aggregate Method}
+The idea: Analyze the total cost $T(m)$ of a worst-case sequence of $m$ operations, then compute the amortized cost as $T(m)/m$ per operation.
+
+\subsection{Accounting Method}
+Assign a \emph{cost} $\hat{c}_i$ to each operation. When $\hat{c}_i > c_i$, store the difference as credits. When $\hat{c}_i < c_i$, use stored credits to pay. Ensure $\sum_{i=1}^{m} \hat{c}_i \geq \sum_{i=1}^{m} c_i$ always holds.
+
+\subsection{Potential Method}
+Define a potential function $\Phi(D)$ that maps the data structure state to a real value. Set amortized cost $\hat{c}_i = c_i + \Phi(D_i) - \Phi(D_{i-1})$. Require $\Phi(D_i) \geq 0$ for all $i$ and $\Phi(D_0) = 0$.
