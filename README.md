@@ -1,10 +1,8 @@
 # Algorithms & Data Structures II Notes
-
 University notes covering topics from the course Algorithms & Data Structures
 II (02110) at the Technical University of Denmark
 
 ## Topics
-
 - Dynamic Programming
 - Flow Algorithms
 - Randomised Algorithms
@@ -15,5 +13,5 @@ II (02110) at the Technical University of Denmark
 
 ## Compile
 ```bash
-pdflatex main.tex
+pdflatex -jobname=Algo2-notes main.tex
 ```
