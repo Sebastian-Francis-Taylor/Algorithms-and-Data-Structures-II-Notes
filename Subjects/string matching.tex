@@ -99,18 +99,3 @@ The solid arrows show character transitions, while dashed red arrows show failur
         KMP & $\BigO(m)$ & $\BigO(n)$ & $\BigO(n+m)$ & $n$ is the size of the string, $m$ is the size of the pattern \\
     \end{tabular}
 \end{table}
-
-\subsection{Tries}
-\begin{table}[H]
-    \centering
-    \small
-    \begin{tabular}{l|c|c|c|c|p{5cm}}
-        & Search & Prefix Search & Construction & Space & Explanation \\
-        \hline
-        Trie & $\BigO(m)$ & $\BigO(m + occ)$ & $\BigO(n)$ & $\BigO(n)$ & $m$ is query length, $occ$ is number of matches, $n$ is total length of all strings \\
-        \hline
-        Compact Trie & $\BigO(m)$ & $\BigO(m + occ)$ & $\BigO(n)$ & $\BigO(s)$ & Compressed version with edge labels, $s$ is number of strings\\
-    \end{tabular}
-\end{table}
-
-
