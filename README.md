@@ -11,7 +11,6 @@ II (02110) at the Technical University of Denmark
 - Partial Sums and Dynamic Arrays
 - NP Completeness
 - Strings I: String Matching
-### Yet to be added
 - Strings II: Tries
 
 ## Compile
