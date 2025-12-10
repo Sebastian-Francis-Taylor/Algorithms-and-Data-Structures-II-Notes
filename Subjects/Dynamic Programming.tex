@@ -1,7 +1,13 @@
 \section{Dynamic Programming}
 \subsection{Weighted Interval Scheduling}
-\emph{The idea:} Sort by finish time and select \\
-\verb|OPT(j) = max(v[j]) + OPT(p[j]), OPT(j-1))|.
+\emph{The idea:} Sort by finish time and select: \\
+\begin{equation*}
+    \text{OPT}(j) = 
+    \begin{cases}
+        \text{max}(v[j]) + \text{OPT}(p[j]) \\
+        \text{OPT}(j-1)
+    \end{cases}
+\end{equation*}
 Either you take job $j$, and skip conflicts, or don't take
 it. The algorithm runs in $O(n \log n)$ time, where $n$ is the number of jobs.
 
@@ -45,14 +51,20 @@ it. The algorithm runs in $O(n \log n)$ time, where $n$ is the number of jobs.
 \caption{Weighted Interval Scheduling Example: Jobs are sorted by finish time. The optimal solution selects non-overlapping jobs with maximum total value.}
 \end{figure}
 
+
+\subsection{Subset Sum}
+
+
 \subsection{Knapsack}
 
 \emph{The problem:} Fill a backpack with as many books as possible. \\
-\verb|OPT(i,w) = max(OPT(i-1,w), v[i] + OPT(i-1, w-w[i]))|
+\begin{equation*}
+    \text{OPT}(i,w) = 
+    \begin{cases}
+        \text{OPT}(i-1,w) \\
+        v[i] + \text{OPT}(i-1, w-w[i])
+    \end{cases}
+\end{equation*}
 The option is to take an item $i$ or not and the algorithm runs in $O(nW)$
 time, where $n$ is the number of items and $W$ is knapsack capacity. The
 algorithm creates a 2D table consisting of $n\times W$
-
-\subsection{Sequence Alignment}
-\emph{The problem:} Match characters, gap in $X$, or gap in $Y$.
-The running time of this algorithm is 
